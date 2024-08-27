@@ -198,6 +198,67 @@ void pattern18(int n){
     }
 }
 
+void pattern19(int n){
+    for (int i = 0; i < n; i++) {
+        int stars = n - abs(n / 2 - i);  // Calculate the number of stars for this row
+        int spaces = 2 * (n / 2 - stars / 2);  // Calculate the spaces in the middle
+
+        // Print stars, spaces, and stars
+        for (int j = 0; j < stars; j++) cout << "*";
+        for (int j = 0; j < spaces; j++) cout << " ";
+        for (int j = 0; j < stars; j++) cout << "*";
+
+        cout << endl;
+    }
+}
+
+void pattern20(int n){
+    for (int i = 1; i <= n; i++) {
+        // Print left stars
+        for (int j = 0; j < i; j++) cout << "*";
+        // Print middle spaces
+        for (int j = 0; j < 2 * (n - i); j++) cout << " ";
+        // Print right stars
+        for (int j = 0; j < i; j++) cout << "*";
+        cout << endl;
+    }
+
+    // Bottom half of the pattern
+    for (int i = n - 1; i > 0; i--) {
+        // Print left stars
+        for (int j = 0; j < i; j++) cout << "*";
+        // Print middle spaces
+        for (int j = 0; j < 2 * (n - i); j++) cout << " ";
+        // Print right stars
+        for (int j = 0; j < i; j++) cout << "*";
+        cout << endl;
+    }
+}
+
+void pattern21(int n){
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            if(i==0 || i==(n-1) || j==0 || j==n-1){
+                cout << "*";
+            }
+            else cout << " ";
+        }
+        cout << endl;
+    }
+}
+
+void pattern22(int n){
+    int size = 2 * n - 1;  // Calculate the size of the pattern matrix
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            // Find the minimum distance from any edge
+            int num = n - min(min(i, j), min(size - i - 1, size - j - 1));
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+}
+
 int main(){
     int n;
     cin >> n;
@@ -236,6 +297,14 @@ int main(){
     pattern17(n);
     cout << endl;
     pattern18(n);
+    cout << endl;
+    pattern19(n);
+    cout << endl;
+    pattern20(n);
+    cout << endl;
+    pattern21(n);
+    cout << endl;
+    pattern22(n);
     cout << endl;
     return 0;
     
