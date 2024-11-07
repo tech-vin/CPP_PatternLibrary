@@ -1,0 +1,1 @@
+A curated collection of coding patterns I've learned and practiced. This repository contains various pattern programs in multiple languages, primarily focusing on loops, ASCII manipulation, and other fundamental coding concepts. Great for beginners looking to understand different types of patterns or anyone wanting to improve their problem-solving skills through visual patterns.
