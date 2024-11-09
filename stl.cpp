@@ -121,8 +121,73 @@ void explainVector(){
     for(auto i: v1) cout << i << " "; cout << endl;
 }
 
+void explainList(){
+    // same as vector but that has push_front to add the value at first index
+    list<int> ls = {1,6,4};
+    ls.push_front(7);
+    for(auto i:ls) cout << i << " "; cout << endl; // 7 1 6 4
+}
+
+void explainStack(){
+    // LIFO
+    stack<int> st;
+    st.push(1);
+    st.push(3);
+    st.push(8);
+
+    cout << st.size() << endl;
+    cout << st.top() << endl;
+    st.pop(); // removes last element 8 in this case
+    cout << st.top() << endl;
+
+    // pushing dummy data
+    st.push(91);
+    st.push(92);
+    st.push(88);
+    st.push(67);
+    st.push(43);
+
+    // inorder to view all the elements we have to pop each element till the last one.
+    while(st.empty() == false){
+        cout << st.top() << " ";
+        st.pop();
+    }
+}
+
+void explainQueue(){
+    // FIFO
+    queue<int> q;
+    q.push(1);
+    q.push(8);
+    q.push(6);
+    q.push(4);
+    while(!q.empty()){
+        cout << q.front() << " ";
+        q.pop();
+    }
+
+}
+
+void explainPQ(){
+    // Priority Queue returns max element
+    priority_queue<int> pq;
+    pq.push(1);
+    pq.push(10);
+    pq.push(11);
+    pq.push(7);
+
+    while(!pq.empty()){
+        cout << pq.top() << " ";
+        pq.pop();
+    }
+}
 int main(){
     explainPair();
     explainVector();
+    explainList();
+    explainStack();
+    explainQueue();
+    explainPQ();
+    
     return 0;
 }
