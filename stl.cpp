@@ -170,7 +170,8 @@ void explainQueue(){
 
 void explainPQ(){
     // Priority Queue returns max element
-    priority_queue<int> pq;
+    priority_queue<int> pq;  // returns max
+    priority_queue<int, vector<int>, greater<int>> small_pq; // return min
     pq.push(1);
     pq.push(10);
     pq.push(11);
@@ -180,6 +181,18 @@ void explainPQ(){
         cout << pq.top() << " ";
         pq.pop();
     }
+    cout << endl;
+
+    small_pq.push(10);
+    small_pq.push(10);
+    small_pq.push(11);
+    small_pq.push(1);
+    small_pq.push(7);
+
+    while(!small_pq.empty()){
+        cout << small_pq.top() << " ";
+        small_pq.pop();
+    }
 }
 int main(){
     explainPair();
@@ -188,6 +201,5 @@ int main(){
     explainStack();
     explainQueue();
     explainPQ();
-    
     return 0;
 }
