@@ -393,6 +393,13 @@ void explainSort(){
     cout << endl;
 }
 
+void explainAccumulate(){
+    int arr[5] = {5, 4, 6, 3, 7};
+    cout << accumulate(arr, arr+5, 0) << endl; // 5+4+6+3+7=25 + 0
+    cout << accumulate(arr, arr+5, 2) << endl; // 25 + 2 = 27
+    cout << accumulate(arr+1, arr+5, 5); // 25 + 5 = 30
+}
+
 int main(){
     explainPair();
     explainVector();
@@ -406,5 +413,6 @@ int main(){
     explainUnorderedMap();
     explainMultiMap();
     explainSort();
+    explainAccumulate();
     return 0;
 }
