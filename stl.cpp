@@ -315,6 +315,60 @@ void explainUnorderedSet(){
     cout << *it;
 }
 
+void explainMap(){
+    // stores in  ascending order, stores unique keys only
+    map<int, string> mp;
+    mp.insert({4, "anil"});
+    mp[1] = "abc";
+    mp[2] = "def";
+    mp[3] = "vin";
+
+    for(auto it : mp){
+        cout << it.first << "->" << it.second << endl;
+    }
+
+    auto fnd = mp.find(3);
+    cout << (*fnd).first << "->" << (* fnd).second << endl;
+}
+
+void explainUnorderedMap(){
+    // stored in unorder format, time complexity is O(n) unless the data is very huge.
+    map<int, string> mp;
+    mp.insert({4, "anil"});
+    mp[1] = "abc";
+    mp[2] = "def";
+    mp[3] = "vin";
+
+    for(auto it : mp){
+        cout << it.first << "->" << it.second << endl;
+    }
+
+    auto fnd = mp.find(3);
+    cout << (*fnd).first << "->" << (* fnd).second << endl;
+}
+
+void explainMultiMap(){
+    // multiple keys with same name can be stored
+    // keys are arranged in ascending order
+    multimap<int, char> mpp;
+    mpp.insert({4, 'v'});
+    mpp.insert({1, 'i'});
+    mpp.insert({1, 'n'});
+    mpp.insert({4, 'e'});
+    mpp.insert({5, 'e'});
+    mpp.insert({5, 't'});
+
+    for(auto it : mpp){
+        cout << it.first << "->" << it.second << endl;
+    }
+    cout << endl;
+
+    // find total range of any repitive number
+    auto it = mpp.equal_range(5);
+    for(auto i = it.first; i != it.second; i++){
+        cout << (*i).first << "->" << (*i).second << endl;
+    }
+}
 
 int main(){
     explainPair();
@@ -326,5 +380,7 @@ int main(){
     explainSet();
     explainMultiSet();
     explainUnorderedSet();
+    explainUnorderedMap();
+    explainMultiMap();
     return 0;
 }
