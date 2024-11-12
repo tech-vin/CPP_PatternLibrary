@@ -370,6 +370,29 @@ void explainMultiMap(){
     }
 }
 
+void explainSort(){
+    int arr[5] = {5, 7, 3, 9, 1};
+    int arr1[5] = {6, 11, 0, 8, 1};
+    sort(arr, arr+5);  // sorted 1,3,5,7,9
+    for(int i=0; i<5; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    sort(arr1 + 1, arr1 + 4);  // sorting 2 - (last-1) elements
+    for(int i=0; i<5; i++){
+        cout << arr1[i] << " ";
+    }
+    cout << endl;
+
+    vector<int> vec = {5, 7, 1, 0, 1};
+    sort(vec.begin(), vec.end());
+    for(auto it : vec){
+        cout << it << " ";
+    }
+    cout << endl;
+}
+
 int main(){
     explainPair();
     explainVector();
@@ -382,5 +405,6 @@ int main(){
     explainUnorderedSet();
     explainUnorderedMap();
     explainMultiMap();
+    explainSort();
     return 0;
 }
