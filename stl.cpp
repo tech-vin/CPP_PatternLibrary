@@ -194,6 +194,128 @@ void explainPQ(){
         small_pq.pop();
     }
 }
+
+void explainSet(){
+    set<int> st;
+
+    st.insert(1);
+    st.insert(12);
+    st.insert(12);
+    st.insert(4);
+    st.insert(4);
+    st.insert(12);
+    st.insert(16);
+
+    for(auto it : st){
+        cout << it << " ";
+    }
+    cout << endl;
+
+    // locate 12
+    auto it = st.find(12);
+    if(it != st.end()){
+        cout << *it;
+    }
+
+    // count returns 1 if found and 0 if not found
+    cout << st.count(12) << endl;
+    cout << st.count(13) << endl;
+
+    for(auto it : st){
+        cout << it << " ";
+    }
+    cout << endl;
+    // erase [1, 4, 12, 16]
+    st.erase(12);  // [1, 4, 16]
+
+    auto t1 = st.begin();
+    t1++;
+
+    auto t2 = st.end();
+    t2--;
+
+    st.erase(t1, t2);
+
+    for(auto it : st){
+        cout << it << " ";
+    }
+    cout << endl;
+
+    // adding dummy data
+    st.insert(231);
+    st.insert(23);
+    st.insert(21);
+    st.insert(31);
+    st.insert(232);
+
+    for(auto it : st){
+        cout << it << " ";
+    }
+    cout << endl;
+
+    // lower bound - returns an iterator that points to an element that is >= number given
+    // upper bound - returns an iterator that points to an element that is > number
+    auto it1 = st.lower_bound(232);
+    if(it1 == st.end()){
+        cout << "end" << endl;;
+    }
+    cout << *it1 << endl;
+
+    it1 = st.upper_bound(16);
+    cout << *it1 << endl;
+}
+
+void explainMultiSet(){
+    multiset<int> ms;
+    ms.insert(0);
+    ms.insert(0);
+    ms.insert(1);
+    ms.insert(1);
+    ms.insert(1);
+    ms.insert(2);
+    ms.insert(1);
+    ms.insert(1);
+    ms.insert(21);
+    ms.insert(21);
+
+    for(auto it : ms){
+        cout << it << " ";
+    }
+    cout << endl;
+
+    // find() -> returns first occurrence
+    auto it = ms.find(1);
+    cout << *it << endl;
+
+    //erase - it removes all the instances of given number
+    auto it1 = ms.erase(1);  // removes all the 1 from an array
+    // auto it1 = ms.erase(ms.find(1)); // this will remove only first instance
+
+    for(auto it : ms){
+        cout << it << " ";
+    }
+    cout << endl;
+
+    // count() -> retuns the total count of given number
+    auto t1 = ms.count(21);
+    cout << t1;
+}
+
+void explainUnorderedSet(){
+    // it has a better time complexity
+    unordered_set<int> st;
+    st.insert(1);
+    st.insert(21);
+    st.insert(21);
+    st.insert(12);
+    st.insert(1);
+    st.insert(13);
+
+    auto it = st.find(12);
+    cout << *it;
+}
+
+
 int main(){
     explainPair();
     explainVector();
@@ -201,5 +323,8 @@ int main(){
     explainStack();
     explainQueue();
     explainPQ();
+    explainSet();
+    explainMultiSet();
+    explainUnorderedSet();
     return 0;
 }
